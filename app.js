@@ -44,10 +44,9 @@ let enquiry = '';
 form?.addEventListener('submit', event => {
   event.preventDefault();
   const fields = new FormData(form);
-  enquiry = `Hello Packbench,\n\nI'd like to discuss early access.\n\nName: ${fields.get('name')}\nEmail: ${fields.get('email')}\nBusiness: ${fields.get('company') || 'Not provided'}\nInterest: ${fields.get('interest')}\n\n${fields.get('message')}\n\nSent from the Packbench website enquiry draft.`;
-  document.querySelector('#email-draft').href = `mailto:hello@packbench.agency?subject=${encodeURIComponent('Packbench early-access enquiry')}&body=${encodeURIComponent(enquiry)}`;
+  enquiry = `Hello Reconcile Ready,\n\nI'd like to discuss early access.\n\nName: ${fields.get('name')}\nEmail: ${fields.get('email')}\nBusiness: ${fields.get('company') || 'Not provided'}\nInterest: ${fields.get('interest')}\n\n${fields.get('message')}\n\nSent from the Reconcile Ready website enquiry draft.`;
   document.querySelector('#email-ready').hidden = false;
-  document.querySelector('#email-draft').focus();
+  document.querySelector('#download-enquiry').focus();
 });
 form?.addEventListener('input', () => {
   document.querySelector('#email-ready').hidden = true;
@@ -57,6 +56,6 @@ document.querySelector('#download-enquiry')?.addEventListener('click', () => {
   if (!enquiry) return;
   const url = URL.createObjectURL(new Blob([enquiry], {type:'text/plain;charset=utf-8'}));
   const a = document.createElement('a');
-  a.href = url; a.download = 'packbench-enquiry.txt'; a.click();
+  a.href = url; a.download = 'reconcile-ready-enquiry.txt'; a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
