@@ -1,18 +1,48 @@
 'use strict';
 const menu = document.querySelector('.menu');
 const navigation = document.querySelector('#navigation');
+const triggers = [...document.querySelectorAll('.nav-trigger')];
+function closeDropdowns(except) {
+  triggers.forEach(trigger => {
+    if (trigger === except) return;
+    trigger.setAttribute('aria-expanded', 'false');
+    document.getElementById(trigger.getAttribute('aria-controls')).hidden = true;
+  });
+}
+function closeNavigation() {
+  closeDropdowns();
+  menu?.setAttribute('aria-expanded', 'false');
+  navigation?.classList.remove('open');
+}
 menu?.addEventListener('click', () => {
   const opened = menu.getAttribute('aria-expanded') !== 'true';
+  closeDropdowns();
   menu.setAttribute('aria-expanded', String(opened));
   navigation.classList.toggle('open', opened);
 });
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') {
-    menu.setAttribute('aria-expanded', 'false');
-    navigation.classList.remove('open');
-    menu.focus();
-  }
+triggers.forEach(trigger => trigger.addEventListener('click', () => {
+  const opened = trigger.getAttribute('aria-expanded') !== 'true';
+  closeDropdowns(trigger);
+  trigger.setAttribute('aria-expanded', String(opened));
+  document.getElementById(trigger.getAttribute('aria-controls')).hidden = !opened;
+}));
+document.addEventListener('click', event => {
+  if (!event.target.closest('.header')) closeNavigation();
 });
+document.addEventListener('focusin', event => {
+  if (!event.target.closest('.header')) closeDropdowns();
+});
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  const opened = triggers.find(trigger => trigger.getAttribute('aria-expanded') === 'true');
+  if (opened) { closeDropdowns(); opened.focus(); }
+  else if (menu?.getAttribute('aria-expanded') === 'true') { closeNavigation(); menu.focus(); }
+});
+navigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
+const route = location.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+if (/\/(reconciliation|profitability)$/.test(route)) triggers[0]?.setAttribute('data-current', 'true');
+if (/\/help$/.test(route)) triggers[1]?.setAttribute('data-current', 'true');
+window.matchMedia('(max-width: 900px)').addEventListener('change', closeNavigation);
 document.querySelectorAll('[data-view]').forEach(button => {
   button.addEventListener('click', () => {
     const dashboard = button.closest('.dashboard');
@@ -58,4 +88,19 @@ document.querySelector('#download-enquiry')?.addEventListener('click', () => {
   const a = document.createElement('a');
   a.href = url; a.download = 'reconcile-ready-enquiry.txt'; a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+const faqSearch = document.querySelector('#faq-search');
+faqSearch?.addEventListener('input', () => {
+  const query = faqSearch.value.trim().toLowerCase();
+  const questions = [...document.querySelectorAll('#faq-answers details')];
+  let visible = 0;
+  questions.forEach(question => {
+    const matches = question.textContent.toLowerCase().includes(query);
+    question.hidden = !matches;
+    if (matches) visible++;
+  });
+  document.querySelector('#faq-count').textContent = visible
+    ? `${visible} ${visible === 1 ? 'answer' : 'answers'}${query ? ' found' : ' available'}.`
+    : 'No matching answers. Try “payout”, “cost” or “Xero”.';
 });
