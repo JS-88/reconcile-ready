@@ -16,3 +16,7 @@
 ## Publication notes
 
 Working brand and email reused from the existing Packbench project. Confirm legal operator, brand/domain and contact mailbox before a public Amazon submission. Current deployment is owner-private by default. API integrations remain planned; no data is connected. Enquiry is email-based, not a mailing-list backend. Privacy/terms describe the preview only and need business-specific details for public launch. No Amazon approval guarantee is made.
+
+## Reconcile Ready rebrand
+
+User confirmed standalone Reconcile Ready brand. Updated all eight pages, page titles, dashboard wordmark, favicon and enquiry downloads. Removed the former contact address. Desktop and mobile wordmarks inspected; local-only enquiry preparation checked without browser errors. Custom domain and email pending. Existing Sites preview hostname retains its original slug; this is not the intended custom domain.
