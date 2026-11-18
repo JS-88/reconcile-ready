@@ -53,9 +53,15 @@ navigation
   ?.querySelectorAll("a")
   .forEach((link) => link.addEventListener("click", closeNavigation));
 const route = location.pathname.replace(/\.html$/, "").replace(/\/$/, "");
+const markCurrentMenu = (menuId) =>
+  document
+    .querySelector(`.nav-trigger[aria-controls="${menuId}"]`)
+    ?.setAttribute("data-current", "true");
 if (/\/(reconciliation|profitability)$/.test(route))
-  triggers[0]?.setAttribute("data-current", "true");
-if (/\/help$/.test(route)) triggers[1]?.setAttribute("data-current", "true");
+  markCurrentMenu("product-menu");
+if (/\/(platforms|amazon|ebay|shopify|amazon-data)$/.test(route))
+  markCurrentMenu("platforms-menu");
+if (/\/help$/.test(route)) markCurrentMenu("resources-menu");
 window
   .matchMedia("(max-width: 900px)")
   .addEventListener("change", closeNavigation);

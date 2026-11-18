@@ -27,25 +27,70 @@
       <div class="wrap nav">
         <a class="brand" href="/" aria-label="Reconcile Ready home"
           ><span class="brandmark" aria-hidden="true">✓</span>Reconcile Ready</a
-        >
-        <button class="menu" aria-expanded="false" aria-controls="navigation">
+        ><button class="menu" aria-expanded="false" aria-controls="navigation">
           Menu <span aria-hidden="true">☰</span>
         </button>
         <nav id="navigation" aria-label="Main navigation">
+          <div class="nav-dropdown">
+            <button
+              class="nav-trigger"
+              aria-expanded="false"
+              aria-controls="product-menu"
+            >
+              Product <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="mega-menu" id="product-menu" hidden>
+              <div class="mega-main">
+                <p class="micro">ONE CONNECTED FINANCIAL PICTURE</p>
+                <a class="mega-link" href="/reconciliation"
+                  ><span class="menu-icon" aria-hidden="true">⇄</span
+                  ><span
+                    ><strong>Channels to Xero</strong
+                    ><small
+                      >Unify channel activity. Prepare your books.</small
+                    ></span
+                  ><b aria-hidden="true">↗</b></a
+                ><a class="mega-link" href="/profitability"
+                  ><span class="menu-icon" aria-hidden="true">↗</span
+                  ><span
+                    ><strong>Product profitability</strong
+                    ><small>See contribution after the costs.</small></span
+                  ><b aria-hidden="true">↗</b></a
+                ><a class="mega-link" href="/profitability#cost-inputs"
+                  ><span class="menu-icon" aria-hidden="true">≡</span
+                  ><span
+                    ><strong>Costs &amp; margins</strong
+                    ><small>Connect purchase and landed costs.</small></span
+                  ><b aria-hidden="true">↗</b></a
+                >
+              </div>
+              <div class="mega-aside">
+                <span class="soft-tag">EXPLORE THE IDEA</span>
+                <h2>What does a sale<br />leave you?</h2>
+                <p>
+                  Change the price and costs in our interactive contribution
+                  example.
+                </p>
+                <a href="/profitability#calculator"
+                  >Try the calculator <span aria-hidden="true">→</span></a
+                ><small>Sample data · no account required</small>
+              </div>
+              <div class="mega-bottom">
+                <span>Software in development</span
+                ><a href="/how-it-works">Explore the planned workflow →</a>
+              </div>
+            </div>
+          </div>
           <div class="nav-dropdown platform-dropdown">
             <button
               class="nav-trigger"
-              data-current="true"
               aria-expanded="false"
               aria-controls="platforms-menu"
             >
               Platforms <span aria-hidden="true">⌄</span>
             </button>
             <div class="platform-menu" id="platforms-menu" hidden>
-              <a
-                class="platform-overview-link"
-                href="/platforms"
-                aria-current="page"
+              <a class="platform-overview-link" href="/platforms"
                 ><span>All platforms</span
                 ><small>One reporting layer across every channel</small></a
               >
@@ -65,11 +110,33 @@
               </div>
             </div>
           </div>
-          <a href="/reconciliation">Channels to Xero</a>
-          <a href="/profitability">Profitability</a>
-          <a href="/how-it-works">How it works</a>
-          <a href="/contact">About</a>
-          <a class="mobile-access" href="/contact"
+          <a class="" href="/how-it-works">How it works</a>
+          <div class="nav-dropdown resource-dropdown">
+            <button
+              class="nav-trigger"
+              aria-expanded="false"
+              aria-controls="resources-menu"
+            >
+              Resources <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="resource-menu" id="resources-menu" hidden>
+              <a href="/help"
+                ><strong>Help &amp; FAQs</strong
+                ><small>Answers before you get started</small></a
+              ><a href="/profitability#definitions"
+                ><strong>Understand your numbers</strong
+                ><small>Sales, contribution and payouts explained</small></a
+              ><a href="/how-it-works#readiness"
+                ><strong>Getting ready</strong
+                ><small>The data and decisions you’ll need</small></a
+              ><a href="/security"
+                ><strong>Security &amp; data</strong
+                ><small>How we protect commerce and accounting data</small></a
+              >
+            </div>
+          </div>
+          <a class="" href="/contact">About</a
+          ><a class="mobile-access" href="/contact"
             >Early access <span aria-hidden="true">↗</span></a
           >
         </nav>
@@ -262,7 +329,7 @@
       </section>
     </main>
     <footer>
-      <div class="wrap footer-grid footer-grid--platforms">
+      <div class="wrap footer-grid">
         <div>
           <a class="brand" href="/"
             ><span class="brandmark" aria-hidden="true">✓</span>Reconcile
@@ -270,11 +337,11 @@
           >
           <p>A clearer view of your<br />ecommerce business.</p>
           <span class="footer-status"
-            >In development · multi-platform reporting</span
+            >In development · Amazon, eBay, Shopify &amp; Xero</span
           >
         </div>
         <div>
-          <h2>Product</h2>
+          <h2>Explore</h2>
           <a href="/reconciliation">Channels to Xero</a
           ><a href="/profitability">Profitability</a
           ><a href="/how-it-works">How it works</a>
@@ -285,7 +352,7 @@
           ><a href="/ebay">eBay</a><a href="/shopify">Shopify</a>
         </div>
         <div>
-          <h2>Company</h2>
+          <h2>Get to know us</h2>
           <a href="/contact">About &amp; contact</a
           ><a href="/help">Help &amp; FAQs</a
           ><a href="mailto:hello@reconcileready.app"
@@ -293,10 +360,11 @@
           >
         </div>
         <div>
-          <h2>Details</h2>
+          <h2>The details</h2>
           <a href="/privacy">Privacy</a><a href="/terms">Terms</a
           ><a href="/security">Security</a
-          ><a href="/amazon-data">Amazon API data use</a>
+          ><a href="/amazon-data">Amazon data use</a>
+          <p>Product previews use<br />illustrative sample data.</p>
         </div>
       </div>
       <div class="wrap footer-bottom">
