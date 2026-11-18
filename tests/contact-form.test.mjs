@@ -19,7 +19,10 @@ assert.match(contact, /<button class="button dark" type="submit">Send enquiry/);
 assert.doesNotMatch(contact, /email-ready|download-enquiry|Create my email/);
 
 assert.match(script, /fetch\(form\.action/);
-assert.match(script, /headers:\s*\{\s*'Accept':\s*'application\/json'\s*\}/);
+assert.match(
+  script,
+  /headers:\s*\{\s*(?:['"]Accept['"]|Accept):\s*['"]application\/json['"]\s*\}/,
+);
 assert.match(script, /form\.reset\(\)/);
 assert.doesNotMatch(script, /mailto-enquiry|download-enquiry|window\.location\.href/);
 

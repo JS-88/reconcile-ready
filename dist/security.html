@@ -1,1 +1,291 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="The technical and organisational controls Reconcile Ready uses to protect seller, buyer and accounting data."><meta name="theme-color" content="#123e31"><title>Security | Reconcile Ready</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css"><script defer src="app.js"></script><link rel="canonical" href="https://reconcileready.app/security.html"><meta property="og:site_name" content="Reconcile Ready"><meta property="og:title" content="Security | Reconcile Ready"><meta property="og:url" content="https://reconcileready.app/security.html"><meta property="og:type" content="website"></head><body><a class="skip" href="#main">Skip to content</a><header class="header"><div class="wrap nav"><a class="brand" href="index.html" aria-label="Reconcile Ready home"><span class="brandmark" aria-hidden="true">✓</span>Reconcile Ready</a><button class="menu" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button><nav id="navigation" aria-label="Main navigation"><div class="nav-dropdown"><button class="nav-trigger" aria-expanded="false" aria-controls="product-menu">Product <span aria-hidden="true">⌄</span></button><div class="mega-menu" id="product-menu" hidden><div class="mega-main"><p class="micro">ONE CONNECTED FINANCIAL PICTURE</p><a class="mega-link" href="reconciliation.html"><span class="menu-icon" aria-hidden="true">⇄</span><span><strong>Amazon to Xero</strong><small>Understand payouts. Prepare your books.</small></span><b aria-hidden="true">↗</b></a><a class="mega-link" href="profitability.html"><span class="menu-icon" aria-hidden="true">↗</span><span><strong>Product profitability</strong><small>See contribution after the costs.</small></span><b aria-hidden="true">↗</b></a><a class="mega-link" href="profitability.html#cost-inputs"><span class="menu-icon" aria-hidden="true">≡</span><span><strong>Costs & margins</strong><small>Connect purchase and landed costs.</small></span><b aria-hidden="true">↗</b></a></div><div class="mega-aside"><span class="soft-tag">EXPLORE THE IDEA</span><h2>What does a sale<br>leave you?</h2><p>Change the price and costs in our interactive contribution example.</p><a href="profitability.html#calculator">Try the calculator <span aria-hidden="true">→</span></a><small>Sample data · no account required</small></div><div class="mega-bottom"><span>Software in development</span><a href="how-it-works.html">Explore the planned workflow →</a></div></div></div><a class="" href="how-it-works.html">How it works</a><div class="nav-dropdown resource-dropdown"><button class="nav-trigger" aria-expanded="false" aria-controls="resources-menu">Resources <span aria-hidden="true">⌄</span></button><div class="resource-menu" id="resources-menu" hidden><a href="help.html"><strong>Help & FAQs</strong><small>Answers before you get started</small></a><a href="profitability.html#definitions"><strong>Understand your numbers</strong><small>Sales, contribution and payouts explained</small></a><a href="how-it-works.html#readiness"><strong>Getting ready</strong><small>The data and decisions you’ll need</small></a><a href="security.html"><strong>Security & data</strong><small>How we protect seller data</small></a></div></div><a class="" href="contact.html">About</a><a class="mobile-access" href="contact.html">Early access <span aria-hidden="true">↗</span></a></nav><a class="nav-cta" href="contact.html">Explore early access <span aria-hidden="true">↗</span></a></div></header><main id="main"><section class="page-hero"><div class="wrap"><p class="eyebrow">SECURITY & DATA PROTECTION</p><h1>Security, built in from the start.</h1><p class="lead">Seller and buyer data deserve careful handling. These are the controls Reconcile Ready applies to every account.</p></div></section><section class="section"><div class="wrap legal"><p class="micro">UPDATED 27 OCTOBER 2026</p><h2>Encryption</h2><ul><li>All traffic is encrypted in transit with TLS 1.2 or higher. Unencrypted connections are refused.</li><li>Data at rest, including databases and backups, is encrypted with AES-256.</li><li>Amazon and Xero access tokens are stored in a dedicated secrets store, separate from application data, and are never written to logs.</li></ul><h2>Access control</h2><ul><li>Access to production systems is limited to named staff who need it for their role, and reviewed every quarter.</li><li>Multi-factor authentication is required for all administrative access, including hosting, source code and email.</li><li>Production servers are reachable for administration only over a private, authenticated network. They are not exposed to the public internet.</li><li>Each customer’s data is logically separated, and every request is checked against the account that owns the data.</li></ul><h2>Passwords and credentials</h2><ul><li>We never ask for your Amazon or Xero password. Connections use each platform’s authorisation flow, and you can revoke them at any time.</li><li>Staff passwords must be unique, at least 12 characters, and stored in a password manager.</li><li>Access is revoked within 24 hours when someone leaves or changes role.</li></ul><h2>Monitoring and logging</h2><ul><li>Access to systems and data is logged. Logs are kept for at least 90 days and reviewed for unusual activity.</li><li>Automated monitoring alerts us to outages and suspicious behaviour.</li><li>Logs never contain buyer personal information or access tokens.</li></ul><h2>Vulnerability management</h2><ul><li>Operating systems and dependencies are patched on a regular schedule, with critical security updates applied promptly.</li><li>Automated vulnerability scans run at least every 180 days and after major changes.</li><li>Firewalls allow only the network traffic the service needs.</li></ul><h2>Incident response</h2><p>We maintain a written incident response plan. If we discover a security incident affecting Amazon data, we notify Amazon within 24 hours, and we notify affected customers and the ICO as the law requires. Each incident is investigated, contained and reviewed so it cannot recur.</p><h2>Development and testing</h2><p>Real buyer personal information is never used in development or testing. Test environments use synthetic data and are separated from production.</p><h2>Backups and continuity</h2><p>Encrypted backups run daily, are stored separately from the primary servers, and are tested by restoring them regularly.</p><h2>Our people</h2><p>Everyone with access to customer data is bound by confidentiality obligations and completes data protection and security training before being given access.</p><h2>Reporting a concern</h2><p>To report a security vulnerability or concern, email <a href="mailto:hello@reconcileready.app">hello@reconcileready.app</a> with “Security” in the subject. We respond within two working days.</p></div></section></main><footer><div class="wrap footer-grid"><div><a class="brand" href="index.html"><span class="brandmark" aria-hidden="true">✓</span>Reconcile Ready</a><p>A clearer view of your<br>Amazon business.</p><span class="footer-status">In development · Amazon & Xero</span></div><div><h2>Explore</h2><a href="reconciliation.html">Amazon to Xero</a><a href="profitability.html">Profitability</a><a href="how-it-works.html">How it works</a></div><div><h2>Get to know us</h2><a href="contact.html">About & contact</a><a href="help.html">Help & FAQs</a><a href="mailto:hello@reconcileready.app">hello@reconcileready.app</a></div><div><h2>The details</h2><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="security.html">Security</a><a href="amazon-data.html">Amazon data use</a><p>Product previews use<br>illustrative sample data.</p></div></div><div class="wrap footer-bottom"><span>© 2026 J5 Ltd · Company no. [COMPANY NUMBER] · Registered in England and Wales</span><span>Reconciliation. Profitability. Connected.</span></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="The technical and organisational controls Reconcile Ready uses to protect commerce-channel, buyer and accounting data."
+    />
+    <meta name="theme-color" content="#123e31" />
+    <title>Security | Reconcile Ready</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="site.css" />
+    <script defer src="app.js"></script>
+    <link rel="canonical" href="https://reconcileready.app/security.html" />
+    <meta property="og:site_name" content="Reconcile Ready" />
+    <meta property="og:title" content="Security | Reconcile Ready" />
+    <meta
+      property="og:url"
+      content="https://reconcileready.app/security.html"
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header">
+      <div class="wrap nav">
+        <a class="brand" href="index.html" aria-label="Reconcile Ready home"
+          ><span class="brandmark" aria-hidden="true">✓</span>Reconcile Ready</a
+        ><button class="menu" aria-expanded="false" aria-controls="navigation">
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="navigation" aria-label="Main navigation">
+          <div class="nav-dropdown">
+            <button
+              class="nav-trigger"
+              aria-expanded="false"
+              aria-controls="product-menu"
+            >
+              Product <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="mega-menu" id="product-menu" hidden>
+              <div class="mega-main">
+                <p class="micro">ONE CONNECTED FINANCIAL PICTURE</p>
+                <a class="mega-link" href="reconciliation.html"
+                  ><span class="menu-icon" aria-hidden="true">⇄</span
+                  ><span
+                    ><strong>Channels to Xero</strong
+                    ><small
+                      >Unify channel activity. Prepare your books.</small
+                    ></span
+                  ><b aria-hidden="true">↗</b></a
+                ><a class="mega-link" href="profitability.html"
+                  ><span class="menu-icon" aria-hidden="true">↗</span
+                  ><span
+                    ><strong>Product profitability</strong
+                    ><small>See contribution after the costs.</small></span
+                  ><b aria-hidden="true">↗</b></a
+                ><a class="mega-link" href="profitability.html#cost-inputs"
+                  ><span class="menu-icon" aria-hidden="true">≡</span
+                  ><span
+                    ><strong>Costs &amp; margins</strong
+                    ><small>Connect purchase and landed costs.</small></span
+                  ><b aria-hidden="true">↗</b></a
+                >
+              </div>
+              <div class="mega-aside">
+                <span class="soft-tag">EXPLORE THE IDEA</span>
+                <h2>What does a sale<br />leave you?</h2>
+                <p>
+                  Change the price and costs in our interactive contribution
+                  example.
+                </p>
+                <a href="profitability.html#calculator"
+                  >Try the calculator <span aria-hidden="true">→</span></a
+                ><small>Sample data · no account required</small>
+              </div>
+              <div class="mega-bottom">
+                <span>Software in development</span
+                ><a href="how-it-works.html">Explore the planned workflow →</a>
+              </div>
+            </div>
+          </div>
+          <a class="" href="how-it-works.html">How it works</a>
+          <div class="nav-dropdown resource-dropdown">
+            <button
+              class="nav-trigger"
+              aria-expanded="false"
+              aria-controls="resources-menu"
+            >
+              Resources <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="resource-menu" id="resources-menu" hidden>
+              <a href="help.html"
+                ><strong>Help &amp; FAQs</strong
+                ><small>Answers before you get started</small></a
+              ><a href="profitability.html#definitions"
+                ><strong>Understand your numbers</strong
+                ><small>Sales, contribution and payouts explained</small></a
+              ><a href="how-it-works.html#readiness"
+                ><strong>Getting ready</strong
+                ><small>The data and decisions you’ll need</small></a
+              ><a href="security.html"
+                ><strong>Security &amp; data</strong
+                ><small>How we protect commerce and accounting data</small></a
+              >
+            </div>
+          </div>
+          <a class="" href="contact.html">About</a
+          ><a class="mobile-access" href="contact.html"
+            >Early access <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+        <a class="nav-cta" href="contact.html"
+          >Explore early access <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">SECURITY &amp; DATA PROTECTION</p>
+          <h1>Security, built in from the start.</h1>
+          <p class="lead">
+            Commerce-channel, buyer and accounting data need careful handling.
+            These are the controls Reconcile Ready plans to apply to every
+            connected account.
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap legal">
+          <p class="micro">UPDATED 18 NOVEMBER 2026</p>
+          <h2>Encryption</h2>
+          <ul>
+            <li>
+              All traffic is encrypted in transit with TLS 1.2 or higher.
+              Unencrypted connections are refused.
+            </li>
+            <li>
+              Data at rest, including databases and backups, is encrypted with
+              AES-256.
+            </li>
+            <li>
+              Amazon, eBay, Shopify and Xero access tokens are stored in a
+              dedicated secrets store, separate from application data, and are
+              never written to logs.
+            </li>
+          </ul>
+          <h2>Access control</h2>
+          <ul>
+            <li>
+              Access to production systems is limited to named staff who need it
+              for their role, and reviewed every quarter.
+            </li>
+            <li>
+              Multi-factor authentication is required for all administrative
+              access, including hosting, source code and email.
+            </li>
+            <li>
+              Production servers are reachable for administration only over a
+              private, authenticated network. They are not exposed to the public
+              internet.
+            </li>
+            <li>
+              Each customer’s data is logically separated, and every request is
+              checked against the account that owns the data.
+            </li>
+          </ul>
+          <h2>Passwords and credentials</h2>
+          <ul>
+            <li>
+              We never ask for your Amazon, eBay, Shopify or Xero password.
+              Connections use each platform’s authorisation flow, and you can
+              revoke them at any time.
+            </li>
+            <li>
+              Staff passwords must be unique, at least 12 characters, and stored
+              in a password manager.
+            </li>
+            <li>
+              Access is revoked within 24 hours when someone leaves or changes
+              role.
+            </li>
+          </ul>
+          <h2>Monitoring and logging</h2>
+          <ul>
+            <li>
+              Access to systems and data is logged. Logs are kept for at least
+              90 days and reviewed for unusual activity.
+            </li>
+            <li>
+              Automated monitoring alerts us to outages and suspicious
+              behaviour.
+            </li>
+            <li>
+              Logs never contain buyer personal information or access tokens.
+            </li>
+          </ul>
+          <h2>Vulnerability management</h2>
+          <ul>
+            <li>
+              Operating systems and dependencies are patched on a regular
+              schedule, with critical security updates applied promptly.
+            </li>
+            <li>
+              Automated vulnerability scans run at least every 180 days and
+              after major changes.
+            </li>
+            <li>Firewalls allow only the network traffic the service needs.</li>
+          </ul>
+          <h2>Incident response</h2>
+          <p>
+            We maintain a written incident response plan. If we discover a
+            security incident affecting Amazon data, we notify Amazon within 24
+            hours. For other connected platforms, we follow their applicable
+            incident-notification requirements. We also notify affected
+            customers and the ICO as the law requires. Each incident is
+            investigated, contained and reviewed.
+          </p>
+          <h2>Development and testing</h2>
+          <p>
+            Real buyer personal information is never used in development or
+            testing. Test environments use synthetic data and are separated from
+            production.
+          </p>
+          <h2>Backups and continuity</h2>
+          <p>
+            Encrypted backups run daily, are stored separately from the primary
+            servers, and are tested by restoring them regularly.
+          </p>
+          <h2>Our people</h2>
+          <p>
+            Everyone with access to customer data is bound by confidentiality
+            obligations and completes data protection and security training
+            before being given access.
+          </p>
+          <h2>Reporting a concern</h2>
+          <p>
+            To report a security vulnerability or concern, email
+            <a href="mailto:hello@reconcileready.app"
+              >hello@reconcileready.app</a
+            >
+            with “Security” in the subject. We respond within two working days.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <a class="brand" href="index.html"
+            ><span class="brandmark" aria-hidden="true">✓</span>Reconcile
+            Ready</a
+          >
+          <p>A clearer view of your<br />ecommerce business.</p>
+          <span class="footer-status"
+            >In development · Amazon, eBay, Shopify &amp; Xero</span
+          >
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <a href="reconciliation.html">Channels to Xero</a
+          ><a href="profitability.html">Profitability</a
+          ><a href="how-it-works.html">How it works</a>
+        </div>
+        <div>
+          <h2>Get to know us</h2>
+          <a href="contact.html">About &amp; contact</a
+          ><a href="help.html">Help &amp; FAQs</a
+          ><a href="mailto:hello@reconcileready.app"
+            >hello@reconcileready.app</a
+          >
+        </div>
+        <div>
+          <h2>The details</h2>
+          <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a
+          ><a href="security.html">Security</a
+          ><a href="amazon-data.html">Amazon data use</a>
+          <p>Product previews use<br />illustrative sample data.</p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span
+          >© 2026 J5 Ltd · Company no. [COMPANY NUMBER] · Registered in England
+          and Wales</span
+        ><span>Reconciliation. Profitability. Connected.</span>
+      </div>
+    </footer>
+  </body>
+</html>
