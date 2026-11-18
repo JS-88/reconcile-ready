@@ -1,22 +1,21 @@
-# Verification — 25 October 2026
+# Verification — 18 November 2026
 
-- Eight static pages: home, reconciliation, profitability, how it works, FAQs, contact/about, privacy, website terms.
-- Browser: desktop homepage and calculator visually inspected; mobile homepage and profitability visually inspected at a 390px override (375px document client width).
-- All eight pages had scrollWidth equal to clientWidth on mobile; no horizontal overflow.
-- Dashboard switches between profitability and settlements.
-- Keyboard slider change £40 to £41 updates contribution to £15 and margin to 36.6%.
-- Negative example £20 - £35 - £8 - £20 yields -£43 and -215%.
-- Mobile navigation opens and navigates correctly; FAQ expands.
-- Valid dummy enquiry prepares mailto draft, shows not-sent state and focuses draft link. No email sent.
-- All local page/asset links and anchors resolve; unique IDs and one H1 on every page.
-- node --check app.js passed. Browser error log empty.
-- Sample settlement totals £9,000; dashboard contribution £17,000, consistent with product rows.
-- Screenshot: review/home-desktop.png.
+- Fourteen public static pages plus a branded 404 page: home, platform hub, Amazon, eBay, Shopify, channels to Xero, profitability, how it works, FAQs, contact/about, security, Amazon data use, privacy and website terms.
+- Desktop layouts visually inspected at 1440px, including the homepage reporting bridge and platform hub.
+- The profitability hero was visually inspected at 1030px after the cache-version update.
+- Amazon, eBay and Shopify detail pages were inspected at 320px and 375px. Navigation collapses to the mobile menu, content becomes single-column and no text or cards clip at the viewport edge.
+- Shared header and footer structure is regression-tested across every public page. Product, Platforms and Resources dropdowns retain stable `aria-controls` identities.
+- Clean Apache routes return 200 for `/platforms`, `/amazon`, `/ebay`, `/shopify`, `/profitability` and `/reconciliation`; an unknown route returns the branded 404.
+- All local page links and fragments resolve to shipped content. Internal navigation uses extensionless URLs.
+- Every HTML page loads a versioned stylesheet so refreshed markup cannot be paired with a stale CSS file.
+- Multi-platform copy is regression-tested on the shared pages. Generic payout examples do not contain platform-specific fee labels.
+- Interactive JavaScript passes `node --check`; all Node regression tests pass; formatting and `git diff --check` pass.
+- API integrations remain clearly described as planned or in development. No connected-account data is presented as live.
 
 ## Publication notes
 
-Working brand and email reused from the existing Packbench project. Confirm legal operator, brand/domain and contact mailbox before a public Amazon submission. Current deployment is owner-private by default. API integrations remain planned; no data is connected. Enquiry is email-based, not a mailing-list backend. Privacy/terms describe the preview only and need business-specific details for public launch. No Amazon approval guarantee is made.
+Reconcile Ready is a standalone J5 Ltd product at `reconcileready.app`. Public enquiries are sent to `hello@reconcileready.app`. The initial planned data sources are Amazon, eBay and Shopify; Xero is the first planned accounting destination. API access remains subject to each provider's approval, permissions, scopes, retention rules and availability. Product previews use illustrative data and make no API approval guarantee.
 
-## Reconcile Ready rebrand
+## Production workflow
 
-User confirmed standalone Reconcile Ready brand. Updated all eight pages, page titles, dashboard wordmark, favicon and enquiry downloads. Removed the former contact address. Desktop and mobile wordmarks inspected; local-only enquiry preparation checked without browser errors. Custom domain and email pending. Existing Sites preview hostname retains its original slug; this is not the intended custom domain.
+The source of truth is the GitHub repository `JS-88/reconcile-ready`. Work is committed on a feature branch, reviewed and fast-forwarded into `main`. The deployable `dist/` directory is published to the `production` branch for Hostinger.

@@ -29,6 +29,25 @@ for (const [file, html] of Object.entries(pages)) {
   );
 
   if (file !== "404.html") {
+    for (const menuId of ["product-menu", "platforms-menu", "resources-menu"]) {
+      assert.match(
+        html,
+        new RegExp(`aria-controls="${menuId}"`),
+        `${file} must use the complete shared navigation`,
+      );
+    }
+    for (const footerHeading of [
+      "Explore",
+      "Platforms",
+      "Get to know us",
+      "The details",
+    ]) {
+      assert.match(
+        html,
+        new RegExp(`<h2>${footerHeading}</h2>`),
+        `${file} must use the complete shared footer`,
+      );
+    }
     assert.match(
       html,
       /href="\/platforms"/,
@@ -60,14 +79,39 @@ for (const [file, slug] of [
 for (const file of ["index.html", "reconciliation.html"]) {
   assert.doesNotMatch(
     pages[file],
-    /AMAZON UK · SAMPLE SETTLEMENT/,
+    /(?:AMAZON UK · SAMPLE SETTLEMENT|Amazon fees)/,
     `${file} must use a channel-neutral payout example`,
   );
+  assert.match(pages[file], /CHANNEL-NEUTRAL · SAMPLE PAYOUT/);
 }
 
 assert.match(pages["index.html"], /class="channel-bridge-map"/);
 assert.match(pages["index.html"], /href="\/amazon"/);
 assert.match(pages["index.html"], /href="\/ebay"/);
 assert.match(pages["index.html"], /href="\/shopify"/);
+
+for (const file of ["amazon.html", "ebay.html", "shopify.html"]) {
+  assert.doesNotMatch(
+    pages[file],
+    /<b>↗<\/b>/,
+    `${file} must hide decorative arrows from assistive technology`,
+  );
+}
+
+const script = read("app.js");
+assert.doesNotMatch(
+  script,
+  /triggers\[\d+\]/,
+  "Dropdown current states must not depend on DOM order",
+);
+assert.match(script, /markCurrentMenu\("resources-menu"\)/);
+assert.match(script, /markCurrentMenu\("platforms-menu"\)/);
+
+const css = read("site.css");
+assert.match(
+  css,
+  /@media\(prefers-reduced-motion:reduce\)[^{]*\{[^}]*\.platform-card:hover[^}]*transform:none/,
+  "Platform hover motion must respect reduced-motion preferences",
+);
 
 console.log("Multi-platform architecture regression checks passed.");
