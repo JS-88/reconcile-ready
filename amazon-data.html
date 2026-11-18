@@ -1,1 +1,281 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Exactly which Amazon Selling Partner API data Reconcile Ready requests, why, how long it is kept and how to disconnect."><meta name="theme-color" content="#123e31"><title>How we use Amazon data | Reconcile Ready</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css"><script defer src="app.js"></script><link rel="canonical" href="https://reconcileready.app/amazon-data.html"><meta property="og:site_name" content="Reconcile Ready"><meta property="og:title" content="How we use Amazon data | Reconcile Ready"><meta property="og:url" content="https://reconcileready.app/amazon-data.html"><meta property="og:type" content="website"></head><body><a class="skip" href="#main">Skip to content</a><header class="header"><div class="wrap nav"><a class="brand" href="index.html" aria-label="Reconcile Ready home"><span class="brandmark" aria-hidden="true">✓</span>Reconcile Ready</a><button class="menu" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button><nav id="navigation" aria-label="Main navigation"><div class="nav-dropdown"><button class="nav-trigger" aria-expanded="false" aria-controls="product-menu">Product <span aria-hidden="true">⌄</span></button><div class="mega-menu" id="product-menu" hidden><div class="mega-main"><p class="micro">ONE CONNECTED FINANCIAL PICTURE</p><a class="mega-link" href="reconciliation.html"><span class="menu-icon" aria-hidden="true">⇄</span><span><strong>Amazon to Xero</strong><small>Understand payouts. Prepare your books.</small></span><b aria-hidden="true">↗</b></a><a class="mega-link" href="profitability.html"><span class="menu-icon" aria-hidden="true">↗</span><span><strong>Product profitability</strong><small>See contribution after the costs.</small></span><b aria-hidden="true">↗</b></a><a class="mega-link" href="profitability.html#cost-inputs"><span class="menu-icon" aria-hidden="true">≡</span><span><strong>Costs & margins</strong><small>Connect purchase and landed costs.</small></span><b aria-hidden="true">↗</b></a></div><div class="mega-aside"><span class="soft-tag">EXPLORE THE IDEA</span><h2>What does a sale<br>leave you?</h2><p>Change the price and costs in our interactive contribution example.</p><a href="profitability.html#calculator">Try the calculator <span aria-hidden="true">→</span></a><small>Sample data · no account required</small></div><div class="mega-bottom"><span>Software in development</span><a href="how-it-works.html">Explore the planned workflow →</a></div></div></div><a class="" href="how-it-works.html">How it works</a><div class="nav-dropdown resource-dropdown"><button class="nav-trigger" aria-expanded="false" aria-controls="resources-menu">Resources <span aria-hidden="true">⌄</span></button><div class="resource-menu" id="resources-menu" hidden><a href="help.html"><strong>Help & FAQs</strong><small>Answers before you get started</small></a><a href="profitability.html#definitions"><strong>Understand your numbers</strong><small>Sales, contribution and payouts explained</small></a><a href="how-it-works.html#readiness"><strong>Getting ready</strong><small>The data and decisions you’ll need</small></a><a href="security.html"><strong>Security & data</strong><small>How we protect seller data</small></a></div></div><a class="" href="contact.html">About</a><a class="mobile-access" href="contact.html">Early access <span aria-hidden="true">↗</span></a></nav><a class="nav-cta" href="contact.html">Explore early access <span aria-hidden="true">↗</span></a></div></header><main id="main"><section class="page-hero"><div class="wrap"><p class="eyebrow">AMAZON DATA USE</p><h1>Your Amazon data, used only for your books.</h1><p class="lead">Reconcile Ready connects to Amazon through the Selling Partner API with your authorisation. This page lists exactly what we request and why.</p></div></section><section class="section"><div class="wrap legal"><p class="micro">UPDATED 27 OCTOBER 2026</p><h2>How the connection works</h2><p>You authorise Reconcile Ready from Amazon Seller Central. We never see or store your Amazon password. You choose which marketplaces to connect and can revoke access at any time from <strong>Seller Central → Apps and Services → Manage Your Apps</strong>.</p><h2>What we request, and why</h2><table><thead><tr><th>API role</th><th>Data</th><th>Used for</th></tr></thead><tbody><tr><td>Finance and Accounting</td><td>Settlement reports, financial events, fees, refunds, reimbursements, reserve movements</td><td>Explaining each payout and preparing matching entries for Xero</td></tr><tr><td>Inventory and Order Tracking</td><td>Orders and order items (SKU, quantity, price, dates)</td><td>Product-level sales and profitability</td></tr><tr><td>Tax Remittance <em>(restricted)</em></td><td>Order tax data and the ship-to location needed to determine VAT treatment</td><td>Correct VAT amounts and tax codes on Xero entries and VAT reporting</td></tr></tbody></table><p>We request only these roles. We do not request access to buyer messaging, shipping labels, listings management or advertising accounts.</p><h2>Data flow</h2><ol><li><strong>Amazon → Reconcile Ready:</strong> data arrives over an encrypted API connection using your authorisation.</li><li><strong>Processing:</strong> transactions are categorised, mapped to your Xero accounts and matched to costs you provide. Buyer details are reduced to the minimum needed for VAT.</li><li><strong>Reconcile Ready → Xero:</strong> summarised settlement entries are posted to your Xero organisation after you review them. Buyer personal information is never sent to Xero.</li></ol><h2>Buyer personal information</h2><p>Buyer information is used only to work out the correct tax treatment. It is never used to contact buyers, never shared, never used for marketing and never combined across sellers. It is deleted within 30 days of order delivery unless tax law requires us to keep it, in which case it stays encrypted and restricted until that obligation ends.</p><h2>What we never do</h2><ul><li>Sell, rent or share Amazon data with third parties.</li><li>Use Amazon data to compete with Amazon or with any seller.</li><li>Contact buyers, or use buyer data for marketing.</li><li>Request more data or roles than a feature needs.</li></ul><h2>Disconnecting</h2><p>Revoking access in Seller Central stops all data collection immediately. Data already received is deleted within 30 days of disconnection, or sooner on request to <a href="mailto:hello@reconcileready.app">hello@reconcileready.app</a>.</p><h2>More detail</h2><p>See our <a href="privacy.html">privacy policy</a> and <a href="security.html">security controls</a>.</p></div></section></main><footer><div class="wrap footer-grid"><div><a class="brand" href="index.html"><span class="brandmark" aria-hidden="true">✓</span>Reconcile Ready</a><p>A clearer view of your<br>Amazon business.</p><span class="footer-status">In development · Amazon & Xero</span></div><div><h2>Explore</h2><a href="reconciliation.html">Amazon to Xero</a><a href="profitability.html">Profitability</a><a href="how-it-works.html">How it works</a></div><div><h2>Get to know us</h2><a href="contact.html">About & contact</a><a href="help.html">Help & FAQs</a><a href="mailto:hello@reconcileready.app">hello@reconcileready.app</a></div><div><h2>The details</h2><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="security.html">Security</a><a href="amazon-data.html">Amazon data use</a><p>Product previews use<br>illustrative sample data.</p></div></div><div class="wrap footer-bottom"><span>© 2026 J5 Ltd · Company no. [COMPANY NUMBER] · Registered in England and Wales</span><span>Reconciliation. Profitability. Connected.</span></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Exactly which Amazon Selling Partner API data Reconcile Ready requests, why, how long it is kept and how to disconnect."
+    />
+    <meta name="theme-color" content="#123e31" />
+    <title>How we use Amazon data | Reconcile Ready</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="site.css" />
+    <script defer src="app.js"></script>
+    <link rel="canonical" href="https://reconcileready.app/amazon-data.html" />
+    <meta property="og:site_name" content="Reconcile Ready" />
+    <meta
+      property="og:title"
+      content="How we use Amazon data | Reconcile Ready"
+    />
+    <meta
+      property="og:url"
+      content="https://reconcileready.app/amazon-data.html"
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header">
+      <div class="wrap nav">
+        <a class="brand" href="index.html" aria-label="Reconcile Ready home"
+          ><span class="brandmark" aria-hidden="true">✓</span>Reconcile Ready</a
+        ><button class="menu" aria-expanded="false" aria-controls="navigation">
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="navigation" aria-label="Main navigation">
+          <div class="nav-dropdown">
+            <button
+              class="nav-trigger"
+              aria-expanded="false"
+              aria-controls="product-menu"
+            >
+              Product <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="mega-menu" id="product-menu" hidden>
+              <div class="mega-main">
+                <p class="micro">ONE CONNECTED FINANCIAL PICTURE</p>
+                <a class="mega-link" href="reconciliation.html"
+                  ><span class="menu-icon" aria-hidden="true">⇄</span
+                  ><span
+                    ><strong>Channels to Xero</strong
+                    ><small
+                      >Unify channel activity. Prepare your books.</small
+                    ></span
+                  ><b aria-hidden="true">↗</b></a
+                ><a class="mega-link" href="profitability.html"
+                  ><span class="menu-icon" aria-hidden="true">↗</span
+                  ><span
+                    ><strong>Product profitability</strong
+                    ><small>See contribution after the costs.</small></span
+                  ><b aria-hidden="true">↗</b></a
+                ><a class="mega-link" href="profitability.html#cost-inputs"
+                  ><span class="menu-icon" aria-hidden="true">≡</span
+                  ><span
+                    ><strong>Costs &amp; margins</strong
+                    ><small>Connect purchase and landed costs.</small></span
+                  ><b aria-hidden="true">↗</b></a
+                >
+              </div>
+              <div class="mega-aside">
+                <span class="soft-tag">EXPLORE THE IDEA</span>
+                <h2>What does a sale<br />leave you?</h2>
+                <p>
+                  Change the price and costs in our interactive contribution
+                  example.
+                </p>
+                <a href="profitability.html#calculator"
+                  >Try the calculator <span aria-hidden="true">→</span></a
+                ><small>Sample data · no account required</small>
+              </div>
+              <div class="mega-bottom">
+                <span>Software in development</span
+                ><a href="how-it-works.html">Explore the planned workflow →</a>
+              </div>
+            </div>
+          </div>
+          <a class="" href="how-it-works.html">How it works</a>
+          <div class="nav-dropdown resource-dropdown">
+            <button
+              class="nav-trigger"
+              aria-expanded="false"
+              aria-controls="resources-menu"
+            >
+              Resources <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="resource-menu" id="resources-menu" hidden>
+              <a href="help.html"
+                ><strong>Help &amp; FAQs</strong
+                ><small>Answers before you get started</small></a
+              ><a href="profitability.html#definitions"
+                ><strong>Understand your numbers</strong
+                ><small>Sales, contribution and payouts explained</small></a
+              ><a href="how-it-works.html#readiness"
+                ><strong>Getting ready</strong
+                ><small>The data and decisions you’ll need</small></a
+              ><a href="security.html"
+                ><strong>Security &amp; data</strong
+                ><small>How we protect commerce and accounting data</small></a
+              >
+            </div>
+          </div>
+          <a class="" href="contact.html">About</a
+          ><a class="mobile-access" href="contact.html"
+            >Early access <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+        <a class="nav-cta" href="contact.html"
+          >Explore early access <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">AMAZON DATA USE</p>
+          <h1>Your Amazon data, used only for your books.</h1>
+          <p class="lead">
+            Amazon is one of Reconcile Ready’s first planned sales-channel
+            connections. We will connect through the Selling Partner API with
+            your authorisation. This page lists exactly what we request and why.
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap legal">
+          <p class="micro">UPDATED 18 NOVEMBER 2026</p>
+          <h2>How the connection works</h2>
+          <p>
+            You authorise Reconcile Ready from Amazon Seller Central. We never
+            see or store your Amazon password. You choose which marketplaces to
+            connect and can revoke access at any time from
+            <strong
+              >Seller Central → Apps and Services → Manage Your Apps</strong
+            >.
+          </p>
+          <h2>What we request, and why</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>API role</th>
+                <th>Data</th>
+                <th>Used for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Finance and Accounting</td>
+                <td>
+                  Settlement reports, financial events, fees, refunds,
+                  reimbursements, reserve movements
+                </td>
+                <td>
+                  Explaining each payout and preparing matching entries for Xero
+                </td>
+              </tr>
+              <tr>
+                <td>Inventory and Order Tracking</td>
+                <td>Orders and order items (SKU, quantity, price, dates)</td>
+                <td>Product-level sales and profitability</td>
+              </tr>
+              <tr>
+                <td>Tax Remittance <em>(restricted)</em></td>
+                <td>
+                  Order tax data and the ship-to location needed to determine
+                  VAT treatment
+                </td>
+                <td>
+                  Correct VAT amounts and tax codes on Xero entries and VAT
+                  reporting
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            We request only these roles. We do not request access to buyer
+            messaging, shipping labels, listings management or advertising
+            accounts.
+          </p>
+          <h2>Data flow</h2>
+          <ol>
+            <li>
+              <strong>Amazon → Reconcile Ready:</strong> data arrives over an
+              encrypted API connection using your authorisation.
+            </li>
+            <li>
+              <strong>Processing:</strong> transactions are categorised, mapped
+              to your Xero accounts and matched to costs you provide. Buyer
+              details are reduced to the minimum needed for VAT.
+            </li>
+            <li>
+              <strong>Reconcile Ready → Xero:</strong> summarised settlement
+              entries are posted to your Xero organisation after you review
+              them. Buyer personal information is never sent to Xero.
+            </li>
+          </ol>
+          <h2>Buyer personal information</h2>
+          <p>
+            Buyer information is used only to work out the correct tax
+            treatment. It is never used to contact buyers, never shared, never
+            used for marketing and never combined across sellers. It is deleted
+            within 30 days of order delivery unless tax law requires us to keep
+            it, in which case it stays encrypted and restricted until that
+            obligation ends.
+          </p>
+          <h2>What we never do</h2>
+          <ul>
+            <li>Sell, rent or share Amazon data with third parties.</li>
+            <li>Use Amazon data to compete with Amazon or with any seller.</li>
+            <li>Contact buyers, or use buyer data for marketing.</li>
+            <li>Request more data or roles than a feature needs.</li>
+          </ul>
+          <h2>Disconnecting</h2>
+          <p>
+            Revoking access in Seller Central stops all data collection
+            immediately. Data already received is deleted within 30 days of
+            disconnection, or sooner on request to
+            <a href="mailto:hello@reconcileready.app"
+              >hello@reconcileready.app</a
+            >.
+          </p>
+          <h2>More detail</h2>
+          <p>
+            See our <a href="privacy.html">privacy policy</a> and
+            <a href="security.html">security controls</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <a class="brand" href="index.html"
+            ><span class="brandmark" aria-hidden="true">✓</span>Reconcile
+            Ready</a
+          >
+          <p>A clearer view of your<br />ecommerce business.</p>
+          <span class="footer-status"
+            >In development · Amazon, eBay, Shopify &amp; Xero</span
+          >
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <a href="reconciliation.html">Channels to Xero</a
+          ><a href="profitability.html">Profitability</a
+          ><a href="how-it-works.html">How it works</a>
+        </div>
+        <div>
+          <h2>Get to know us</h2>
+          <a href="contact.html">About &amp; contact</a
+          ><a href="help.html">Help &amp; FAQs</a
+          ><a href="mailto:hello@reconcileready.app"
+            >hello@reconcileready.app</a
+          >
+        </div>
+        <div>
+          <h2>The details</h2>
+          <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a
+          ><a href="security.html">Security</a
+          ><a href="amazon-data.html">Amazon data use</a>
+          <p>Product previews use<br />illustrative sample data.</p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span
+          >© 2026 J5 Ltd · Company no. [COMPANY NUMBER] · Registered in England
+          and Wales</span
+        ><span>Reconciliation. Profitability. Connected.</span>
+      </div>
+    </footer>
+  </body>
+</html>

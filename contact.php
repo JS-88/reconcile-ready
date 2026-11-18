@@ -57,7 +57,7 @@ $message = substr($message, 0, 2500);
 
 $allowedInterests = [
     'Reconciliation and profitability',
-    'Amazon to Xero reconciliation',
+    'Channel reconciliation into Xero',
     'Product profitability and costs',
     'Using Reconcile Ready with accounting clients',
 ];
