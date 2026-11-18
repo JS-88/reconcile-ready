@@ -70,24 +70,48 @@ if (calculator) {
   update();
 }
 const form = document.querySelector('#enquiry-form');
-let enquiry = '';
-form?.addEventListener('submit', event => {
+const formStatus = form?.querySelector('#form-status');
+const submitButton = form?.querySelector('[type="submit"]');
+const submitLabel = submitButton?.textContent;
+
+function showFormStatus(message, state = '') {
+  if (!formStatus) return;
+  formStatus.textContent = message;
+  formStatus.className = state ? `form-status ${state}` : 'form-status';
+}
+
+if (form) {
+  const contactState = new URLSearchParams(location.search).get('contact');
+  if (contactState === 'sent') {
+    showFormStatus('Thank you — your enquiry has been sent. We’ll reply by email.', 'success');
+  } else if (contactState === 'error') {
+    showFormStatus('We couldn’t send your enquiry. Please try again in a moment.', 'error');
+  }
+}
+
+form?.addEventListener('submit', async event => {
   event.preventDefault();
-  const fields = new FormData(form);
-  enquiry = `Hello Reconcile Ready,\n\nI'd like to discuss early access.\n\nName: ${fields.get('name')}\nEmail: ${fields.get('email')}\nBusiness: ${fields.get('company') || 'Not provided'}\nInterest: ${fields.get('interest')}\n\n${fields.get('message')}\n\nSent from the Reconcile Ready website enquiry draft.`;
-  document.querySelector('#email-ready').hidden = false;
-  document.querySelector('#download-enquiry').focus();
-});
-form?.addEventListener('input', () => {
-  document.querySelector('#email-ready').hidden = true;
-  enquiry = '';
-});
-document.querySelector('#download-enquiry')?.addEventListener('click', () => {
-  if (!enquiry) return;
-  const url = URL.createObjectURL(new Blob([enquiry], {type:'text/plain;charset=utf-8'}));
-  const a = document.createElement('a');
-  a.href = url; a.download = 'reconcile-ready-enquiry.txt'; a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending…';
+  showFormStatus('Sending your enquiry…');
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.message || 'Unable to send your enquiry.');
+
+    form.reset();
+    showFormStatus('Thank you — your enquiry has been sent. We’ll reply by email.', 'success');
+  } catch (error) {
+    showFormStatus(error.message || 'We couldn’t send your enquiry. Please try again in a moment.', 'error');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = submitLabel;
+  }
 });
 
 const faqSearch = document.querySelector('#faq-search');
