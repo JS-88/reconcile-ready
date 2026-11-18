@@ -10,8 +10,8 @@
     <meta name="theme-color" content="#123e31" />
     <title>Multi-channel ecommerce reporting | Reconcile Ready</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/site.css" />
-    <script defer src="/app.js"></script>
+    <link rel="stylesheet" href="/site.css?v=20261118-3" />
+    <script defer src="/app.js?v=20261118-3"></script>
     <link rel="canonical" href="https://reconcileready.app/" />
     <meta property="og:site_name" content="Reconcile Ready" />
     <meta
@@ -78,6 +78,35 @@
               <div class="mega-bottom">
                 <span>Software in development</span
                 ><a href="/how-it-works">Explore the planned workflow →</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-dropdown platform-dropdown">
+            <button
+              class="nav-trigger"
+              aria-expanded="false"
+              aria-controls="platforms-menu"
+            >
+              Platforms <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="platform-menu" id="platforms-menu" hidden>
+              <a class="platform-overview-link" href="/platforms"
+                ><span>All platforms</span
+                ><small>One reporting layer across every channel</small></a
+              >
+              <div class="platform-menu-grid">
+                <a href="/amazon"
+                  ><strong>Amazon</strong
+                  ><small>Settlements, fees and financial events</small></a
+                >
+                <a href="/ebay"
+                  ><strong>eBay</strong
+                  ><small>Orders, fees, funds and payouts</small></a
+                >
+                <a href="/shopify"
+                  ><strong>Shopify</strong
+                  ><small>Store orders, payments and payouts</small></a
+                >
               </div>
             </div>
           </div>
@@ -286,13 +315,36 @@
       </section>
       <section class="bridge" id="product">
         <div class="wrap bridge-grid">
-          <p class="eyebrow">FROM CHANNEL ACTIVITY TO REPORTS</p>
-          <h2>One business.<br />A more complete picture.</h2>
-          <p>
-            Amazon, eBay and Shopify each describe activity differently.
-            Reconcile Ready is being built to preserve the source detail while
-            giving you one place to compare channels, products and payouts.
+          <div class="bridge-intro">
+            <p class="eyebrow">FROM CHANNEL ACTIVITY TO REPORTS</p>
+            <h2>One business.<br />A more complete picture.</h2>
+          </div>
+          <p class="bridge-copy">
+            Every platform describes financial activity differently. Reconcile
+            Ready is being built to preserve the source detail while giving you
+            one place to compare channels, products and payouts.
           </p>
+          <div
+            class="channel-bridge-map"
+            aria-label="Three commerce platforms feeding one reporting layer"
+          >
+            <div class="channel-bridge-sources">
+              <a href="/amazon"><span>01</span><strong>Amazon</strong></a>
+              <a href="/ebay"><span>02</span><strong>eBay</strong></a>
+              <a href="/shopify"><span>03</span><strong>Shopify</strong></a>
+            </div>
+            <span class="channel-bridge-arrow" aria-hidden="true">→</span>
+            <div class="channel-bridge-core">
+              <small>RECONCILE READY</small>
+              <strong>One financial layer</strong>
+              <span>Source detail retained</span>
+            </div>
+            <span class="channel-bridge-arrow" aria-hidden="true">→</span>
+            <div class="channel-bridge-results">
+              <span>Payout reports</span><span>Product margins</span
+              ><span>Xero-ready activity</span>
+            </div>
+          </div>
         </div>
       </section>
       <section class="section" id="channels">
@@ -315,9 +367,7 @@
                 Bring together settlement reports, financial events, orders,
                 fees, refunds and the tax data needed for supported reporting.
               </p>
-              <a class="text-link" href="/amazon-data"
-                >See the planned Amazon data use ↗</a
-              >
+              <a class="text-link" href="/amazon">Explore Amazon reporting ↗</a>
             </article>
             <article>
               <span class="soft-tag">Planned source 02</span>
@@ -326,6 +376,7 @@
                 Organise available orders, refunds, seller fees and payouts into
                 the same reporting categories used across the business.
               </p>
+              <a class="text-link" href="/ebay">Explore eBay reporting ↗</a>
             </article>
             <article>
               <span class="soft-tag">Planned source 03</span>
@@ -334,6 +385,9 @@
                 Connect store orders, discounts, returns and available payment
                 activity with the costs and channel data behind each sale.
               </p>
+              <a class="text-link" href="/shopify"
+                >Explore Shopify reporting ↗</a
+              >
             </article>
           </div>
         </div>
@@ -360,7 +414,7 @@
           <div class="settlement-card">
             <div class="panel-heading">
               <div>
-                <span class="micro">AMAZON UK · SAMPLE SETTLEMENT</span>
+                <span class="micro">MULTI-CHANNEL · SAMPLE PAYOUT</span>
                 <h3>Every payout, explained.</h3>
               </div>
               <span class="soft-tag">GBP</span>
@@ -724,6 +778,11 @@
           <a href="/reconciliation">Channels to Xero</a
           ><a href="/profitability">Profitability</a
           ><a href="/how-it-works">How it works</a>
+        </div>
+        <div>
+          <h2>Platforms</h2>
+          <a href="/platforms">All platforms</a><a href="/amazon">Amazon</a
+          ><a href="/ebay">eBay</a><a href="/shopify">Shopify</a>
         </div>
         <div>
           <h2>Get to know us</h2>
