@@ -104,6 +104,7 @@ assert.doesNotMatch(
   /triggers\[\d+\]/,
   "Dropdown current states must not depend on DOM order",
 );
+assert.match(script, /setAttribute\("aria-current", "page"\)/);
 assert.match(script, /markCurrentMenu\("resources-menu"\)/);
 assert.match(script, /markCurrentMenu\("platforms-menu"\)/);
 
