@@ -17,9 +17,21 @@ for (const [file, html] of Object.entries(pages)) {
   );
   assert.doesNotMatch(
     html,
-    /(?:href|action)="(?:\.\/)?(?:index|reconciliation|profitability|how-it-works|contact|help|security|amazon-data|privacy|terms)\.html(?:[#?"])/,
+    /(?:href|action|content)="(?:https:\/\/reconcileready\.app)?\/?(?:index|reconciliation|profitability|how-it-works|contact|help|security|amazon-data|privacy|terms)\.html(?:[#?"])/,
     `${file} must use clean internal URLs`,
   );
+
+  const slug = file === 'index.html' ? '' : file.replace(/\.html$/, '');
+  const trailingSlashBase = `https://reconcileready.app/${slug}/`;
+  for (const match of html.matchAll(/(?:href|src|action)="(\/?(?:assets\/|site\.css|app\.js|contact\.php)[^"]*)"/g)) {
+    const resolved = new URL(match[1], trailingSlashBase);
+    const expectedPath = `/${match[1].replace(/^\//, '')}`;
+    assert.equal(
+      resolved.pathname,
+      expectedPath,
+      `${file} assets and form actions must remain valid if a trailing-slash URL is requested`,
+    );
+  }
 }
 
 const notFound = pages['404.html'];
@@ -27,6 +39,22 @@ assert.ok(notFound, 'A branded 404 page must ship with the site');
 assert.match(notFound, /<meta name="robots" content="noindex"/);
 assert.match(notFound, /Reconcile Ready/);
 assert.match(notFound, /href="\/"/);
+
+assert.match(
+  pages['privacy.html'],
+  /Reconcile Ready is operated by J5 Ltd/,
+  'The privacy page must identify the confirmed operator without placeholder registration data',
+);
+assert.match(
+  pages['terms.html'],
+  /operated by J5 Ltd/,
+  'The terms page must identify the confirmed operator without placeholder registration data',
+);
+assert.doesNotMatch(
+  pages['contact.html'],
+  /J5 Ltd/,
+  'The public contact page must retain the requested brand-only presentation',
+);
 
 for (const file of ['reconciliation.html', 'profitability.html', 'how-it-works.html', 'contact.html']) {
   assert.match(
@@ -50,6 +78,11 @@ const css = read('site.css');
 assert.match(css, /\.page-hero--visual/);
 assert.match(css, /\.hero-summary/);
 assert.match(css, /\.table-scroll-hint/);
+assert.match(
+  css,
+  /@media\(max-width:700px\)\{\.table-scroll-hint\{display:flex/,
+  'The swipe cue must remain visible until a 620px table fits with page gutters',
+);
 assert.ok(
   css.lastIndexOf('.dash-head .micro{font-size:8px') >
     css.lastIndexOf('.dash-head .micro{font-size:6px'),

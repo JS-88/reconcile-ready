@@ -12,7 +12,7 @@ const handler = read('contact.php');
 
 assert.doesNotMatch(contact, /<strong>Company details<\/strong>/);
 assert.doesNotMatch(contact, /class="contact-email"/);
-assert.match(contact, /<form id="enquiry-form" action="contact\.php" method="post">/);
+assert.match(contact, /<form id="enquiry-form" action="\/contact\.php" method="post">/);
 assert.match(contact, /name="website"[^>]*autocomplete="off"[^>]*tabindex="-1"/);
 assert.match(contact, /id="form-status"[^>]*role="status"[^>]*aria-live="polite"/);
 assert.match(contact, /<button class="button dark" type="submit">Send enquiry/);
