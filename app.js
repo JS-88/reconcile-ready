@@ -53,6 +53,11 @@ navigation
   ?.querySelectorAll("a")
   .forEach((link) => link.addEventListener("click", closeNavigation));
 const route = location.pathname.replace(/\.html$/, "").replace(/\/$/, "");
+const currentHref = route || "/";
+navigation?.querySelectorAll("a[href]").forEach((link) => {
+  if (link.getAttribute("href") === currentHref)
+    link.setAttribute("aria-current", "page");
+});
 const markCurrentMenu = (menuId) =>
   document
     .querySelector(`.nav-trigger[aria-controls="${menuId}"]`)
