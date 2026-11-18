@@ -17,15 +17,15 @@ for (const [file, html] of Object.entries(pages)) {
   );
   assert.doesNotMatch(
     html,
-    /(?:href|action|content)="(?:https:\/\/reconcileready\.app)?\/?(?:index|reconciliation|profitability|how-it-works|contact|help|security|amazon-data|privacy|terms)\.html(?:[#?"])/,
+    /(?:href|action|content)="(?:https:\/\/reconcileready\.app)?(?:\.\/|\/)?(?:index|reconciliation|profitability|how-it-works|contact|help|security|amazon-data|privacy|terms)\.html(?:[#?"])/,
     `${file} must use clean internal URLs`,
   );
 
   const slug = file === 'index.html' ? '' : file.replace(/\.html$/, '');
   const trailingSlashBase = `https://reconcileready.app/${slug}/`;
-  for (const match of html.matchAll(/(?:href|src|action)="(\/?(?:assets\/|site\.css|app\.js|contact\.php)[^"]*)"/g)) {
+  for (const match of html.matchAll(/(?:href|src|action)="((?:\.\/|\/)?(?:assets\/|site\.css|app\.js|contact\.php)[^"]*)"/g)) {
     const resolved = new URL(match[1], trailingSlashBase);
-    const expectedPath = `/${match[1].replace(/^\//, '')}`;
+    const expectedPath = `/${match[1].replace(/^(?:\.\/|\/)/, '')}`;
     assert.equal(
       resolved.pathname,
       expectedPath,
